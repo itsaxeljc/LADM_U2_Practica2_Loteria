@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var estado = false
     var fin = false
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                     estado = false
                     hilo.terminarHilo()
                     hilo.pausarHilo()
+                    //hilo = AdminHilo(this)
                     binding.carta.setImageResource(R.drawable.uno)
                     binding.button2.setText("¡Buenas!")
                     binding.button2.visibility=(View.GONE)
@@ -75,11 +76,17 @@ class MainActivity : AppCompatActivity() {
 
     fun sonCarta(song:MediaPlayer) = GlobalScope.launch {
         launch {
-            song.start()
-            song.setOnCompletionListener {
-                mp -> mp.release()
+            try {
+                song.start()
+                song.setOnCompletionListener {
+                        mp -> mp.release()
+                }
+                delay(3500)
+
+            }catch (ex: Exception){
+                //println(ex.message)
             }
-            delay(4000)
+
         }
     }
 

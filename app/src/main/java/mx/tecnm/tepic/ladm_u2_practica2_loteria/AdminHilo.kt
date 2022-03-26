@@ -39,6 +39,14 @@ class AdminHilo (activity: MainActivity) : Thread() {
                 act.runOnUiThread {
                     act.binding.btnIniciar.setText("Reiniciar")
                     act.binding.carta.setImageResource(maso[conta].getImg())
+
+                    /*  maso[conta].getSong().start()
+                      maso[conta].getSong().setOnCompletionListener {
+                              mp -> mp.release()
+                      }
+
+                      maso[conta].getSong().stop()*/
+
                     act.sonCarta(maso[conta].getSong())
                     println(conta)
                 }

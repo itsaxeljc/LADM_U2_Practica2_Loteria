@@ -1,5 +1,6 @@
 package mx.tecnm.tepic.ladm_u2_practica2_loteria
 
+import android.content.Context
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -74,9 +75,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun sonCarta(song:MediaPlayer) = GlobalScope.launch {
+    fun sonCarta(sonido:Int,context: Context) = GlobalScope.launch {
         launch {
             try {
+                val song =  MediaPlayer.create(context,sonido)
                 song.start()
                 song.setOnCompletionListener {
                         mp -> mp.release()

@@ -2,7 +2,7 @@ package mx.tecnm.tepic.ladm_u2_practica2_loteria
 
 import android.media.MediaPlayer
 
-class Carta (song:MediaPlayer,image:Int) {
+class Carta (song:Int,image:Int) {
     val img = image
     val song = song
 
@@ -12,7 +12,7 @@ class Carta (song:MediaPlayer,image:Int) {
     }
 
     @JvmName("getSong1")
-    fun getSong() : MediaPlayer{
+    fun getSong() : Int{
         return song
     }
 
